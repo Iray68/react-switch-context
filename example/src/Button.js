@@ -1,6 +1,6 @@
 // @flow
 import React from 'react';
-import { withSwitcher } from '../../src/index';
+import { withSwitcher } from '../../dist/index';
 
 type ButtonPropsType = {
   label: string,

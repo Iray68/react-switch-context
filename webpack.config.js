@@ -15,9 +15,15 @@ module.exports = (env, { mode }) => ({
   },
   entry: mode === 'development' ? './example/src/index.js' : './src/index.js',
   output: {
-    filename: '[name].bundle.js',
+    libraryTarget: 'umd',
+    filename: mode === 'development' ? '[name].bundle.js' : 'index.js',
     chunkFilename: '[name].bundle.js',
     path: path.resolve(__dirname, './dist/'),
     publicPath: 'dist/'
-  }
+  },
+  externals: [
+    {
+      react: 'react'
+    }
+  ]
 });

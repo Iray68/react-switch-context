@@ -2,12 +2,14 @@
   "name": "react-switch-context",
   "version": "0.1.0",
   "description": "A tiny library that switch react component",
-  "main": "index.js",
+  "module": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest",
     "coverage": "jest --coverage",
-    "dev": "rm -rf dist && webpack --watch --env dev --mode development",
-    "flow": "flow"
+    "flow": "flow",
+    "dev": "webpack --watch --env dev --mode development",
+    "build": "webpack --env prd --mode production"
   },
   "repository": {
     "type": "git",

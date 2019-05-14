@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import ReactDom from 'react-dom';
-import Switch, { Screen } from '../../src/index';
+import Switch, { Screen } from '../../dist/index.js';
 import Button from './Button';
 
 const Home = lazy(() => import(/* webpackChunkName: "Home" */ './Home/index'));
