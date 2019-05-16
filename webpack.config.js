@@ -21,9 +21,12 @@ module.exports = (env, { mode }) => ({
     path: path.resolve(__dirname, './dist/'),
     publicPath: 'dist/'
   },
-  externals: [
-    {
-      react: 'react'
-    }
-  ]
+  externals:
+    mode === 'development'
+      ? []
+      : [
+          {
+            react: 'react'
+          }
+        ]
 });
