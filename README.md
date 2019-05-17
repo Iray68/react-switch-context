@@ -5,13 +5,16 @@ A tiny library that switch react component around the React Context API.
 Use the command line:
 
 
-    `npm install react-switch-context --save` Or `yarn add react-switch-context`
+    npm install react-switch-context --save
+Or
+
+`yarn add react-switch-context`
 ## Usage
 
 ```JSX
 import React from 'react';
 import { render } from 'react-dom';
-import Switch, { Screen } from '../../dist/index.js';
+import Switch, { Screen } from 'react-switch-context';
 
 export default render(
   <Switch
