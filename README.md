@@ -8,7 +8,7 @@ Use the command line:
     npm install react-switch-context --save
 Or
 
-`yarn add react-switch-context`
+    yarn add react-switch-context
 ## Usage
 
 ```JSX

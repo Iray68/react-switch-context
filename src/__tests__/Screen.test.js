@@ -41,15 +41,15 @@ describe('<Screen />', () => {
         <Screen {...props} name={viewName} />
       </Provider>
     );
-    it('the content should be rendered', () => {
+    test('the content should be rendered', () => {
       expect(wrapper.exists()).toBeTruthy();
     });
-    it('<ScreenView /> should be rendered', () => {
+    test('<ScreenView /> should be rendered', () => {
       expect(wrapper.find('ScreenView').exists()).toBeTruthy();
     });
   });
 
-  it('Except for name and viewName, all props should be passed to child(ScreenView)', () => {
+  test('Except for name and viewName, all props should be passed to child(ScreenView)', () => {
     const viewName = expect.any(String);
 
     const wrapper = mount(

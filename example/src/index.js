@@ -26,8 +26,8 @@ export default ReactDom.render(
             placeholder="input name passed to context's viewProps for re-rendering"
           />
           <Button
-            onClick={e => to('home', { name: 'Ray' })}
-            label={`Back to Home (from ${name})`}
+            onClick={e => to('home', { name: name })}
+            label={`Back to Home (with input: ${name})`}
           />
         </div>
       )}

@@ -11,7 +11,7 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe("Switch's context", () => {
-  describe('<Provider>', () => {
+  test('<Provider>', () => {
     const context = {
       viewName: expect.any(String),
       viewProps: expect.anything(),
@@ -19,7 +19,7 @@ describe("Switch's context", () => {
     };
     const TestComponent = jest.fn(props => <div />);
 
-    it('context value', () => {
+    test('context value', () => {
       const wrapper = mount(
         <Provider value={context}>
           <Consumer>{value => <TestComponent {...value} />}</Consumer>
@@ -49,7 +49,7 @@ describe("Switch's context", () => {
       TestComponent = withSwitcher(props => <div />);
     });
 
-    it("viewProps' attribute and to function in context should be passed into HOC", () => {
+    test("viewProps' attribute and to function in context should be passed into HOC", () => {
       const wrapper = mount(
         <Provider value={context}>
           <TestComponent />
@@ -61,7 +61,7 @@ describe("Switch's context", () => {
       });
     });
 
-    it("inner component's props", () => {
+    test("inner component's props", () => {
       const testProps = { test: expect.anything() };
 
       const wrapper = mount(
@@ -72,7 +72,7 @@ describe("Switch's context", () => {
       expect(wrapper.children().props().test).toEqual(testProps.test);
     });
 
-    it("viewProps in context should override component's props", () => {
+    test("viewProps in context should override component's props", () => {
       const testProps = { testContext: expect.anything() };
 
       const wrapper = mount(
@@ -90,7 +90,7 @@ describe("Switch's context", () => {
     });
   });
 
-  it('class SwitchContext for createContext() parameter', () => {
+  test('SwitchContext for createContext() parameter', () => {
     const name = expect.any(String);
     const props = expect.any(Object);
     const mockFunction = jest.fn();

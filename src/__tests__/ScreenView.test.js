@@ -17,15 +17,15 @@ describe('<ScreenView />', () => {
 
   const wrapper = mount(<ScreenView {...props} />);
 
-  it('viewComponent: render props function should be called', () => {
+  test('viewComponent: render props function should be called', () => {
     expect(Component).toHaveBeenCalledTimes(1);
   });
 
-  it('viewComponent should be rendered', () => {
+  test('viewComponent should be rendered', () => {
     expect(wrapper.containsMatchingElement(Component)).toBeTruthy();
   });
 
-  it('override initialProps by viewProps, and pass all the props to viewComponent', () => {
+  test('override initialProps by viewProps, and pass all the props to viewComponent', () => {
     const { initialProps, viewProps, to } = props;
 
     expect(wrapper.children().props()).toEqual({
