@@ -1,4 +1,5 @@
 import React from 'react';
+import faker from 'faker';
 import {
   Consumer,
   Provider,
@@ -11,10 +12,12 @@ import Adapter from 'enzyme-adapter-react-16';
 configure({ adapter: new Adapter() });
 
 describe("Switch's context", () => {
-  test('<Provider>', () => {
+  describe('<Provider>', () => {
     const context = {
-      viewName: expect.any(String),
-      viewProps: expect.anything(),
+      viewName: faker.random.objectElement(),
+      viewProps: {
+        [faker.random.objectElement()]: faker.random.objectElement()
+      },
       to: jest.fn()
     };
     const TestComponent = jest.fn(props => <div />);
@@ -39,10 +42,12 @@ describe("Switch's context", () => {
       jest.resetModules();
 
       mockFunction = jest.fn();
-      mockProps = { testContext: expect.any(Object) };
+      mockProps = {
+        testContext: faker.random.objectElement()
+      };
 
       context = {
-        viewName: expect.any(String),
+        viewName: faker.random.objectElement(),
         viewProps: mockProps,
         to: mockFunction
       };
@@ -62,7 +67,7 @@ describe("Switch's context", () => {
     });
 
     test("inner component's props", () => {
-      const testProps = { test: expect.anything() };
+      const testProps = { test: faker.random.objectElement() };
 
       const wrapper = mount(
         <Provider value={context}>
@@ -73,15 +78,15 @@ describe("Switch's context", () => {
     });
 
     test("viewProps in context should override component's props", () => {
-      const testProps = { testContext: expect.anything() };
+      const defaultProps = { testContext: 'somethingElse' };
 
       const wrapper = mount(
         <Provider value={context}>
-          <TestComponent {...testProps} />
+          <TestComponent {...defaultProps} />
         </Provider>
       );
       expect(wrapper.children().props().testContext).not.toEqual(
-        testProps.testContext
+        defaultProps.testContext
       );
 
       expect(wrapper.children().props().testContext).toEqual(
@@ -91,8 +96,10 @@ describe("Switch's context", () => {
   });
 
   test('SwitchContext for createContext() parameter', () => {
-    const name = expect.any(String);
-    const props = expect.any(Object);
+    const name = faker.random.objectElement();
+    const props = {
+      [faker.random.objectElement()]: faker.random.objectElement()
+    };
     const mockFunction = jest.fn();
 
     const context = new SwitchContext({

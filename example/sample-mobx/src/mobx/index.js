@@ -1,9 +1,9 @@
-import React from "react";
-import Switch, { Screen, withSwitcher } from "react-switch-context";
-import Home from "./Home";
-import Detail from "./Detail";
-import { StoreProvider } from "./stores";
-import { PAGE_DETAIL, PAGE_HOME } from "./constants";
+import React from 'react';
+import Switch, { Screen, withSwitcher } from 'react-switch-context';
+import Home from './Home';
+import Detail from './Detail';
+import { StoreProvider } from './stores';
+import { PAGE_DETAIL, PAGE_HOME } from './constants';
 
 const page = props => {
   return (

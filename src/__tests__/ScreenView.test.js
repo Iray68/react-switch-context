@@ -3,6 +3,7 @@ import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import ScreenView from '../component/Screen/ScreenView';
 
+import faker from 'faker';
 configure({ adapter: new Adapter() });
 
 describe('<ScreenView />', () => {
@@ -10,8 +11,14 @@ describe('<ScreenView />', () => {
 
   const props = {
     viewComponent: Component,
-    initialProps: { test: expect.any(Object) },
-    viewProps: { testContext: expect.any(Object) },
+    initialProps: {
+      test: { [faker.random.objectElement()]: faker.random.objectElement() }
+    },
+    viewProps: {
+      testContext: {
+        [faker.random.objectElement()]: faker.random.objectElement()
+      }
+    },
     to: jest.fn()
   };
 

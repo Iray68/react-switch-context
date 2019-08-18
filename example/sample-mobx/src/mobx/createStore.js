@@ -1,5 +1,5 @@
-import UserStore from "./stores/UserStore";
-import TodoStore from "./stores/TodoStore";
+import UserStore from './stores/UserStore';
+import TodoStore from './stores/TodoStore';
 
 export function createStore() {
   return {

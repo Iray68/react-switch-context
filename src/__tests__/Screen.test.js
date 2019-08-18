@@ -3,18 +3,23 @@ import { mount, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Screen from '../component/Screen';
 import { Provider } from '../component/Switch/context';
+import faker from 'faker';
 
 configure({ adapter: new Adapter() });
 
 describe('<Screen />', () => {
   let props = {
-    name: expect.any(String),
+    name: 'viewA',
     viewComponent: jest.fn(props => <div />),
-    initialProps: expect.any(Object)
+    initialProps: {
+      [faker.random.objectElement()]: faker.random.objectElement()
+    }
   };
   let context = {
-    viewName: expect.any(String),
-    viewProps: expect.any(Object),
+    viewName: 'viewB',
+    viewProps: {
+      [faker.random.objectElement()]: faker.random.objectElement()
+    },
     to: jest.fn()
   };
   beforeEach(() => {
@@ -28,13 +33,13 @@ describe('<Screen />', () => {
       </Provider>
     );
 
-    it('viewComponent should not be rendered', () => {
+    test('viewComponent should not be rendered', () => {
       expect(wrapper.isEmptyRender()).toBeTruthy();
     });
   });
 
   describe('while the viewName in props and name in context is the same', () => {
-    const viewName = expect.any(String);
+    const viewName = faker.random.objectElement();
 
     const wrapper = mount(
       <Provider value={Object.assign({}, context, { viewName })}>
@@ -50,7 +55,7 @@ describe('<Screen />', () => {
   });
 
   test('Except for name and viewName, all props should be passed to child(ScreenView)', () => {
-    const viewName = expect.any(String);
+    const viewName = faker.random.objectElement();
 
     const wrapper = mount(
       <Provider value={Object.assign({}, context, { viewName })}>

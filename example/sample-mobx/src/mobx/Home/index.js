@@ -1,14 +1,14 @@
-import React, { Fragment } from "react";
-import { useStore } from "../stores";
-import { observer, useLocalStore } from "mobx-react";
-import SubmittableInput from "../components/SubmittableInput";
-import { PAGE_DETAIL } from "../constants";
+import React, { Fragment } from 'react';
+import { useStore } from '../stores';
+import { observer, useLocalStore } from 'mobx-react';
+import SubmittableInput from '../components/SubmittableInput';
+import { PAGE_DETAIL } from '../constants';
 
 const Home = observer(({ to }) => {
   const { userStore } = useStore();
 
   const store = useLocalStore(() => ({
-    name: "",
+    name: '',
     onChange(value) {
       this.name = value;
     }

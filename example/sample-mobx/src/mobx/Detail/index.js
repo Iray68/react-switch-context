@@ -1,14 +1,14 @@
-import { observer, useLocalStore } from "mobx-react";
-import { useStore } from "../stores";
-import { Fragment } from "react";
-import React from "react";
-import SubmittableInput from "../components/SubmittableInput";
+import { observer, useLocalStore } from 'mobx-react';
+import { useStore } from '../stores';
+import { Fragment } from 'react';
+import React from 'react';
+import SubmittableInput from '../components/SubmittableInput';
 
 const Detail = observer(() => {
   const { todoStore } = useStore();
 
   const store = useLocalStore(() => ({
-    value: "",
+    value: '',
     onChange(value) {
       this.value = value;
     }

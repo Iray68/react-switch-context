@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment } from 'react';
 
 const SubmittableInput = ({
   onChange,
@@ -12,7 +12,7 @@ const SubmittableInput = ({
     <button
       onClick={() => {
         onSubmit(value);
-        if (clearAfterSubmit) onChange("");
+        if (clearAfterSubmit) onChange('');
       }}
     >
       {labelBtn}

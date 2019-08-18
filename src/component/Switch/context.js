@@ -23,15 +23,12 @@ class SwitchContext {
 
 const context = createContext<ContextType<{}>>(new SwitchContext({}));
 
-export const withSwitcher = <T>(Component: React.ComponentType<T>) => (
+export const withSwitcher = <T>(Component: React.AbstractComponent<T>) => (
   props: T
-) => (
-  <Consumer>
-    {({ viewName, viewProps, to }) => (
-      <Component to={to} {...props} {...viewProps} />
-    )}
-  </Consumer>
-);
+) => {
+  const { viewProps, to } = React.useContext(context);
+  return <Component to={to} {...props} {...viewProps} />;
+};
 
 export const { Provider, Consumer } = context;
 export { SwitchContext };
