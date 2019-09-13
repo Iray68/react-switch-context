@@ -1,14 +1,17 @@
 # react-switch-context
+
 A tiny library that switch react component around the React Context API.
 
 ## Get Started
+
 Use the command line:
 
-
     npm install react-switch-context --save
+
 Or
 
     yarn add react-switch-context
+
 ## Usage
 
 ```JSX
@@ -57,8 +60,7 @@ export default render(
 );
 ```
 
-Or ***Download the project, using command line:***
-
+Or **_Download the project, using command line:_**
 
 ```
     npm run example
@@ -67,31 +69,35 @@ Or ***Download the project, using command line:***
 ```
     yarn example
 ```
+
 and open the src/index.html.
 
 ## Properties (Screen)
-|   Properties  | Type | Default | Required |
-| :-----------: |:----:| :------:| :------: |
-| **name**      | string |        | **true**|
-| **viewComponent** | React.Component | | **true**|
-| initialProps  | Object | {} | false|
+
+|    Properties     |      Type       | Default | Required? |
+| :---------------: | :-------------: | :-----: | :-------: |
+|     **name**      |     string      |         |     ✓     |
+| **viewComponent** | React.Component |         |     ✓     |
+|   initialProps    |     Object      |   {}    |           |
 
 ## Properties (Switch)
-| Properties | Type | Default | Required |
-| :--------: |:----:| :------:| :------: |
-| **children**   | Screen |        | **true**|
-| rootView | string | first-child's name | false|
-| notFoundView| React.Component | | false|
-| loadingView| React elements | | false|
+
+|  Properties  |      Type       |      Default       | Required? |
+| :----------: | :-------------: | :----------------: | :-------: |
+| **children** |     Screen      |                    |     ✓     |
+|   rootView   |     string      | first-child's name |           |
+| notFoundView | React.Component |                    |           |
+| loadingView  | React elements  |                    |           |
 
 ## Function and View Props
 
 Screen Component will pass initialProps and to() into viewComponent.
 
-| Function Name |       Parameter         |  Action              |
-| :-----------: |:-----------------------:| :-------------------:|
-| to            |   (viewName, viewProps) |  Switch to Screen by viewName and override the Component initial props with viewProps   |
+| Function Name |       Parameter       |                                        Action                                        |
+| :-----------: | :-------------------: | :----------------------------------------------------------------------------------: |
+|      to       | (viewName, viewProps) | Switch to Screen by viewName and override the Component initial props with viewProps |
 
 TODO:
+
 - [ ] Complete basic guidelines.
 - [ ] More complicated example on Demo website.
